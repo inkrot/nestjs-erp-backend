@@ -28,6 +28,7 @@
     "@nestjs/typeorm": "^7.1.4",
     "mysql": "^2.18.1",
     "passport": "^0.4.1",
+    "passport-custom": "^1.1.1",
     "passport-local": "^1.0.0",
     "reflect-metadata": "^0.1.13",
     "rimraf": "^3.0.2",

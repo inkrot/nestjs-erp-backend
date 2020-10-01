@@ -1,19 +1,23 @@
 import {Controller, Request, Post, UseGuards, Get} from '@nestjs/common';
 import { AuthGuard } from '@nestjs/passport';
+import { TokenAuthGuard } from 'auth/token-auth.guard'
 
 @Controller()
 export class AppController {
-    @UseGuards(AuthGuard('local'))
+
     @Post('login')
-    async login(@Request() req) {
-        //console.log(req)
-        return req.user;
+    @UseGuards(AuthGuard('login'))
+    async login(@Request() request) {
+        let user = request.user
+        return {
+            username: user.username,
+            name: user.name,
+            token: '3434'
+        }
     }
 
-    @Get()
-    getHello() {
-        //throw new HttpException('Forbidden', HttpStatus.FORBIDDEN);
-        //return this.appService.getHello();
-        return ''
-    }
+    @Get('checkAuthToken')
+    @UseGuards(TokenAuthGuard)
+    async checkAuthToken(@Request() request) {}
+
 }

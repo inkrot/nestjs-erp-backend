@@ -12,7 +12,4 @@ export class User {
 
     @Column({ default: true })
     isActive: boolean;
-
-    //@OneToMany(type => Photo, photo => photo.user)
-    //photos: Photo[];
 }
