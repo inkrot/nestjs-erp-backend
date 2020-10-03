@@ -3,7 +3,7 @@ import { AuthGuard } from '@nestjs/passport';
 import { TokenAuthGuard } from 'auth/token-auth.guard'
 
 @Controller()
-export class AppController {
+export class AuthController {
 
     @Post('login')
     @UseGuards(AuthGuard('login'))
@@ -18,6 +18,8 @@ export class AppController {
 
     @Get('checkAuthToken')
     @UseGuards(TokenAuthGuard)
-    async checkAuthToken(@Request() request) {}
+    async checkAuthToken(@Request() request) {
+        return request
+    }
 
 }
